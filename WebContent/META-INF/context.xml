@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context>
 
-<Resource name="jdbc/kpit" auth="Container" type="javax.sql.DataSource"
+<Resource name="jdbc/jbossews" auth="Container" type="javax.sql.DataSource"
                maxActive="50" maxIdle="30" maxWait="10000"
-               username="root" password="" 
+               username="adminKJcQILf" password="vAhmXiCPYFr4"
                driverClassName="com.mysql.jdbc.Driver"
-               url="jdbc:mysql://localhost:3306/kpit"/>
+               url="jdbc:mysql://127.9.244.2:3306/jbossews"/>
 </Context>
