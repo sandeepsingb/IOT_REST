@@ -49,7 +49,7 @@ public class TestJndiServlet extends javax.servlet.http.HttpServlet implements
 		StringBuffer sb = new StringBuffer();
 		try {
 			InitialContext ctx = new InitialContext();
-			DataSource ds = (DataSource) ctx.lookup("java:/comp/env/jdbc/kpit");
+			DataSource ds = (DataSource) ctx.lookup("java:/comp/env/jdbc/jbossews");
 
 			// This works too
 			// Context envCtx = (Context) ctx.lookup("java:comp/env");

@@ -153,7 +153,7 @@ public class IotCsService {
 			try {
 				InitialContext ctx = new InitialContext();
 				DataSource ds = (DataSource) ctx
-						.lookup("java:/comp/env/jdbc/kpit");
+						.lookup("java:/comp/env/jdbc/jbossews");
 				conn = ds.getConnection();
 				select = conn.createStatement();
 

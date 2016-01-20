@@ -25,7 +25,7 @@ public class JerseyClient {
 			Client client = Client.create(clientConfig);
 
 			WebResource webResource = client
-					.resource("http://jbossews-ezs.rhcloud.com/iot1/sr/iotcs/recieve");
+					.resource("http://jbossews-serviceex.rhcloud.com/iot1/sr/iotcs/recieve");
 
 //			WebResource webResource = client
 //					.resource("http://localhost:9999/iot1/sr/iotcs/recieve");
