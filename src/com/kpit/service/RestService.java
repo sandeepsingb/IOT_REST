@@ -106,7 +106,7 @@ public class RestService {
 		List<ServiceRequestDTO> ServiceRequestList = new ArrayList<ServiceRequestDTO>();
 		try {
 			InitialContext ctx = new InitialContext();
-			DataSource ds = (DataSource) ctx.lookup("java:/comp/env/jdbc/kpit");
+			DataSource ds = (DataSource) ctx.lookup("java:/comp/env/jdbc/jbossews");
 			conn = ds.getConnection();
 			String query = "UPDATE SERVICEREQUEST SET SRSTATUS=?,ACTUALRESOLUTION=? WHERE SRCODE=?";
 
@@ -149,7 +149,7 @@ public class RestService {
 		List<ServiceRequestDTO> ServiceRequestList = new ArrayList<ServiceRequestDTO>();
 		try {
 			InitialContext ctx = new InitialContext();
-			DataSource ds = (DataSource) ctx.lookup("java:/comp/env/jdbc/kpit");
+			DataSource ds = (DataSource) ctx.lookup("java:/comp/env/jdbc/jbossews");
 			conn = ds.getConnection();
 			st = conn.createStatement();
 			rs = st.executeQuery("SELECT SRCODE, SRDESC, SRPRIORITY, SRSTATUS, FAULTCODE, FAULTDESC, RAISEDDATE, GENSETNAME, GENSETMODEL, GENSETSERIAL, GENSETSOFTVER, GENSETLOC, ACTUALRESOLUTION FROM SERVICEREQUEST WHERE 1");
@@ -208,7 +208,7 @@ public class RestService {
 		List<ServiceRequestStatus> serviceRequestStatus = new ArrayList<ServiceRequestStatus>();
 		try {
 			InitialContext ctx = new InitialContext();
-			DataSource ds = (DataSource) ctx.lookup("java:/comp/env/jdbc/kpit");
+			DataSource ds = (DataSource) ctx.lookup("java:/comp/env/jdbc/jbossews");
 			conn = ds.getConnection();
 			st = conn.createStatement();
 			rs = st.executeQuery("SELECT COUNT(SRPRIORITY) AS CNT,SRPRIORITY FROM SERVICEREQUEST WHERE UPPER(SRSTATUS) <> 'CLOSED' GROUP BY SRPRIORITY");
@@ -271,7 +271,7 @@ public class RestService {
 		List<ServiceRequestDTO> ServiceRequestList = new ArrayList<ServiceRequestDTO>();
 		try {
 			InitialContext ctx = new InitialContext();
-			DataSource ds = (DataSource) ctx.lookup("java:/comp/env/jdbc/kpit");
+			DataSource ds = (DataSource) ctx.lookup("java:/comp/env/jdbc/jbossews");
 			conn = ds.getConnection();
 			st = conn.createStatement();
 			rs = st.executeQuery("SELECT SRCODE, SRDESC, SRPRIORITY, SRSTATUS, FAULTCODE, FAULTDESC, GENSETNAME, GENSETMODEL, GENSETSERIAL, GENSETSOFTVER, GENSETLOC, ACTUALRESOLUTION FROM SERVICEREQUEST WHERE RAISEDDATE=(select t CURRENT_DATE from dual)");
@@ -329,7 +329,7 @@ public class RestService {
 		List<ServiceRequestDTO> ServiceRequestList = new ArrayList<ServiceRequestDTO>();
 		try {
 			InitialContext ctx = new InitialContext();
-			DataSource ds = (DataSource) ctx.lookup("java:/comp/env/jdbc/kpit");
+			DataSource ds = (DataSource) ctx.lookup("java:/comp/env/jdbc/jbossews");
 			conn = ds.getConnection();
 			st = conn.createStatement();
 			rs = st.executeQuery("SELECT APTDATE,SRCODE, SRDESC, SRPRIORITY, SRSTATUS, FAULTCODE, FAULTDESC, GENSETNAME, GENSETMODEL, GENSETSERIAL, GENSETSOFTVER, GENSETLOC, ACTUALRESOLUTION FROM SERVICEREQUEST WHERE APTDATE between (SELECT CURRENT_DATE FROM DUAL) AND (SELECT CURRENT_DATE+5 FROM DUAL)");
